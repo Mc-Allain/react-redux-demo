@@ -1,11 +1,21 @@
+import classNames from 'classnames'
 import React from 'react'
+import { connect } from 'react-redux'
 
 const AppContainer = ({ children }) => {
     return (
-        <div className='min-h-[100vh] bg-gray-700 text-white flex flex-col items-center'>
+        <div className={classNames(
+            'min-h-[100vh] flex flex-col items-center',
+        )}>
             {children}
         </div>
     )
 }
 
-export default AppContainer
+const mapStateToProps = state => {
+    return {
+        colors: state.colors,
+    }
+}
+
+export default connect(mapStateToProps) (AppContainer);

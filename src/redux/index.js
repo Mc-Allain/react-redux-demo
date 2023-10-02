@@ -1,1 +1,1 @@
-export { incrementQuantity, decrementQuantity, addToCart, checkout } from './product/productActions';
+export { switchTheme } from './colorTheme/colorThemeActions';
