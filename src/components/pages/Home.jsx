@@ -36,7 +36,7 @@ const Home = (props) => {
                                 }
                             }}
                         />
-                        <Button className={'mt-10'} onClick={() => props.endHiragana()}>Quit</Button>
+                        <Button className={'mt-10'} onClick={() => props.quitHiragana()}>Quit</Button>
                     </div>
                 ) : (
                     <div> {
@@ -46,7 +46,7 @@ const Home = (props) => {
                                     <div className="text-2xl mt-3">
                                         {'Your Final Score: ' + props.hiraganaReducer.score}
                                     </div>
-                                    <Button className={'mt-16 w-fit'} onClick={() => props.quitHiragana()}>Finish</Button>
+                                    <Button className={'mt-16 w-fit'} onClick={() => props.endHiragana()}>Finish</Button>
                                 </div>
                             ) : (
                                 <BoxButton onClick={() => props.getHiragana()}>Start</BoxButton>

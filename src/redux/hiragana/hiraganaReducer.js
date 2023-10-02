@@ -107,14 +107,13 @@ const hiraganaReducer = (state = initialState, action) => {
             return clonedState;
         case QUIT_HIRAGANA:
             const clonedState2 = {...state};
-
-            clonedState2.isCorrect = false;
             
             clonedState2.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
                 hiragana.answered = 0;
                 return hiragana;
             })
 
+            clonedState2.hiraganaInDisplay = {};
             clonedState2.score = 0;
             clonedState2.isCorrect = false;
             clonedState2.isFinished = false;

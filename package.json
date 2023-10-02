@@ -14,7 +14,7 @@
     "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://Mc-Allain.github.io/Japanese_Kana_Typing_Quiz",
+  "homepage": "https://Mc-Allain.github.io/react-redux-demo",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
