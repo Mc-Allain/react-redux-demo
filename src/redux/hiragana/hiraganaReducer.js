@@ -40,7 +40,7 @@ const initialState = {
         {value: 'ほ', romaji: 'ho', answered: 0},
 
         {value: 'ま', romaji: 'ma', answered: 0},
-        {value: 'み', romaji: 'mu', answered: 0},
+        {value: 'み', romaji: 'mi', answered: 0},
         {value: 'む', romaji: 'mu', answered: 0},
         {value: 'め', romaji: 'me', answered: 0},
         {value: 'む', romaji: 'mo', answered: 0},
