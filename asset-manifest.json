@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Japanese_Kana_Typing_Quiz/static/css/main.073c9b0a.css",
+    "main.js": "/Japanese_Kana_Typing_Quiz/static/js/main.35edc396.js",
+    "static/js/787.da1041fe.chunk.js": "/Japanese_Kana_Typing_Quiz/static/js/787.da1041fe.chunk.js",
+    "index.html": "/Japanese_Kana_Typing_Quiz/index.html",
+    "main.073c9b0a.css.map": "/Japanese_Kana_Typing_Quiz/static/css/main.073c9b0a.css.map",
+    "main.35edc396.js.map": "/Japanese_Kana_Typing_Quiz/static/js/main.35edc396.js.map",
+    "787.da1041fe.chunk.js.map": "/Japanese_Kana_Typing_Quiz/static/js/787.da1041fe.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.35edc396.js"
+  ]
+}
