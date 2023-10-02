@@ -35,7 +35,7 @@ const initialState = {
 
         {value: 'は', romaji: 'ha', answered: 0},
         {value: 'ひ', romaji: 'hi', answered: 0},
-        {value: 'ふ', romaji: 'hu', answered: 0},
+        {value: 'ふ', romaji: 'fu', answered: 0},
         {value: 'へ', romaji: 'he', answered: 0},
         {value: 'ほ', romaji: 'ho', answered: 0},
 
