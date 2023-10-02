@@ -2,20 +2,20 @@ import classNames from "classnames";
 import React from "react";
 import { connect } from "react-redux";
 
-const AppBody = (props, { children }) => {
+const AppBody = (props) => {
     return (
         <div className={classNames(
-            'flex-grow flex flex-col items-center h-full w-full p-12',
-            props.colors.APP_BODY,
+            'flex-grow flex flex-col items-center w-full p-12',
+            props.colorThemeReducer.colors.APP_BODY,
         )}>
-            {children}
+            {props.children}
         </div>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        colors: state.colors,
+        colorThemeReducer: state.colorThemeReducer,
     }
 }
 

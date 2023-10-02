@@ -2,19 +2,20 @@ import classNames from 'classnames'
 import React from 'react'
 import { connect } from 'react-redux'
 
-const AppContainer = ({ children }) => {
+const AppContainer = (props) => {
     return (
         <div className={classNames(
             'min-h-[100vh] flex flex-col items-center',
+            props.colorThemeReducer.colors.APP_CONTAINER,
         )}>
-            {children}
+            {props.children}
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        colors: state.colors,
+        colorThemeReducer: state.colorThemeReducer,
     }
 }
 

@@ -15,17 +15,17 @@ const AppHeader = (props) => {
 
     return (
         <div className={classNames(
-            'shadow z-[2] h-10 w-full px-10 flex justify-between items-center',
-            props.colors.APP_HEADER,
+            'z-[2] h-14 w-full px-10 flex justify-between items-center',
+            props.colorThemeReducer.colors.APP_HEADER,
         )}>
-            <div className='text-lg font-medium uppercase '>
+            <div className='text-2xl font-medium uppercase '>
                 Japanese Kana Typing Quiz
             </div>
             <div className={classNames(
-                'h-full px-3 cursor-pointer flex items-center',
-                props.colors.THEME_SWITCH_COLOR
-            )} onClick={() => props.switchTheme(props.colorTheme === COLOR_THEMES.LIGHT ? COLOR_THEMES.DARK : COLOR_THEMES.LIGHT)}>
-                { props.colorTheme === COLOR_THEMES.LIGHT ? 'Dark Theme' : 'Light Theme'}
+                'h-full px-3 cursor-pointer flex items-center text-lg',
+                props.colorThemeReducer.colors.THEME_SWITCH_COLOR
+            )} onClick={() => props.switchTheme(props.colorThemeReducer.colorTheme === COLOR_THEMES.LIGHT ? COLOR_THEMES.DARK : COLOR_THEMES.LIGHT)}>
+                { props.colorThemeReducer.colorTheme === COLOR_THEMES.LIGHT ? 'Dark Theme' : 'Light Theme'}
             </div>
         </div>
     )
@@ -33,8 +33,7 @@ const AppHeader = (props) => {
 
 const mapStateToProps = state => {
     return {
-        colorTheme: state.colorTheme,
-        colors: state.colors,
+        colorThemeReducer: state.colorThemeReducer,
     }
 }
 

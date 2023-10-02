@@ -1,0 +1,4 @@
+export const GET_HIRAGANA = 'GET_HIRAGANA';
+export const SUBMIT_HIRAGANA = 'SUBMIT_HIRAGANA';
+export const QUIT_HIRAGANA = 'QUIT_HIRAGANA';
+export const END_HIRAGANA = 'END_HIRAGANA';
