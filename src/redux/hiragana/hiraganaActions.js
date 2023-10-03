@@ -1,8 +1,9 @@
 import { END_HIRAGANA, GET_HIRAGANA, QUIT_HIRAGANA, SUBMIT_HIRAGANA } from "./hiraganaConstants"
 
-export const getHiragana = () => {
+export const getHiragana = (hiragana) => {
     return {
         type: GET_HIRAGANA,
+        hiragana: hiragana,
     }
 }
 

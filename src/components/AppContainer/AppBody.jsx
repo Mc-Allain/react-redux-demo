@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 
 const AppBody = (props) => {
     return (
-        <div className={classNames(
-            'flex-grow flex flex-col items-center w-full p-12',
-            props.colorThemeReducer.colors.APP_BODY,
-        )}>
-            {props.children}
-        </div>
+		<div className="grow w-full flex justify-center overflow-y-auto">
+            <div className={classNames(
+                'flex min-h-full h-fit w-full',
+                props.colorThemeReducer.colors.APP_BODY,
+            )}>
+                {props.children}
+            </div>
+		</div>
     );
 };
 

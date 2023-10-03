@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const AppContainer = (props) => {
     return (
         <div className={classNames(
-            'min-h-[100vh] flex flex-col items-center',
+            'h-screen flex flex-col',
             props.colorThemeReducer.colors.APP_CONTAINER,
         )}>
             {props.children}
