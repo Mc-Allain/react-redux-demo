@@ -30,20 +30,14 @@ const quizGroupReducer = (state = initiateState, action) => {
     switch (action.type) {
         case TOGGLE_QUIZ_GROUP:
             var clonedState = {...state};
+            
+            clonedState.quizGroups = [...state.quizGroups].map(quizGroup => {
+                if (quizGroup.label === action.quizGroup.label) {
+                    quizGroup.selected === 0 ? quizGroup.selected = 1 : quizGroup.selected = 0;
+                }
 
-            const selectedCount = [...state.quizGroups].filter(quizGroup => {
-                return quizGroup.selected === 1;
-            }).length;
-
-            if (selectedCount > 1 || action.quizGroup.selected === 0) {
-                clonedState.quizGroups = [...state.quizGroups].map(quizGroup => {
-                    if (quizGroup.label === action.quizGroup.label) {
-                        quizGroup.selected === 0 ? quizGroup.selected = 1 : quizGroup.selected = 0;
-                    }
-    
-                    return quizGroup;
-                })
-            }
+                return quizGroup;
+            })
 
             return clonedState;
         case TOGGLE_QUIZ_GROUP_ALL:
@@ -52,9 +46,7 @@ const quizGroupReducer = (state = initiateState, action) => {
             var clonedState = {...state};
             
             clonedState.quizGroups = [...clonedState.quizGroups].map((quizGroup, index) => {
-                if (action.doSelectAll || index !== 0) {
-                    quizGroup.selected = selectionValue;
-                }
+                quizGroup.selected = selectionValue;
 
                 return quizGroup;
             })

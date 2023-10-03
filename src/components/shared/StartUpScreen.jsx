@@ -4,18 +4,31 @@ import { connect } from 'react-redux'
 import { generateHiraganaList } from '../../redux'
 import QuizGroupSelector from './QuizGroupSelector'
 import Button from './Button'
+import Section from './Section'
 
 const StartUpScreen = (props) => {
+	const selectedCount = [...props.quizGroupReducer.quizGroups].filter(quizGroup => {
+		return quizGroup.selected === 1;
+	}).length;
+
 	const generateHiraganaList = () => {
 		props.generateHiraganaList(props.quizGroupReducer.quizGroups);
 	}
 
 	return (
 		<div className="flex flex-col items-center h-full py-8">
-			<QuizGroupSelector className='mx-10 md:mx-20' />
-			<div className='flex items-end md:items-center flex-grow'>
-				<BoxButton className='hidden md:block' onClick={() => generateHiraganaList()}>Start</BoxButton>
-				<Button className='md:hidden' onClick={() => generateHiraganaList()}>Start</Button>
+			<Section title={'Group'} className='mx-10 md:mx-20'>
+				<QuizGroupSelector />
+			</Section>
+				<div className='flex items-end md:items-center flex-grow'>
+				{
+					selectedCount > 0 ? (
+						<>
+							<BoxButton className='hidden md:block' onClick={() => generateHiraganaList()}>Start</BoxButton>
+							<Button className='md:hidden' onClick={() => generateHiraganaList()}>Start</Button>
+						</>
+					) : <div className='text-lg md:text-3xl'>Please select at least one group</div>
+				}
 			</div>
 		</div>
 	)

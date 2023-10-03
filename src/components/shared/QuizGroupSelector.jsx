@@ -6,11 +6,6 @@ import SelectorButton from './SelectorButton';
 
 const QuizGroupSelector = (props) => {
 
-
-	const selectedCount = [...props.quizGroupReducer.quizGroups].filter(quizGroup => {
-		return quizGroup.selected === 1;
-	}).length;
-
 	const isAllGroupSelected = !props.quizGroupReducer.quizGroups.some(quizGroup => quizGroup.selected === 0);
 
 	return (
@@ -24,7 +19,7 @@ const QuizGroupSelector = (props) => {
 				isSelected={isAllGroupSelected}
 				onClick={() => props.toggleQuizGroupAll(!isAllGroupSelected)}
 			>
-				{isAllGroupSelected ? 'Select First' : 'Select All'}
+				{isAllGroupSelected ? 'Deselect All' : 'Select All'}
 			</SelectorButton>
 		{
 				props.quizGroupReducer.quizGroups.map((quizGroup, index) => {
@@ -32,7 +27,7 @@ const QuizGroupSelector = (props) => {
 						<SelectorButton 
 							key={index}
 							isSelected={quizGroup.selected === 1}
-							isDisabled={quizGroup.selected === 1 && selectedCount === 1}
+							// isDisabled={quizGroup.selected === 1 && selectedCount === 1}
 							onClick={() => props.toggleQuizGroup(quizGroup)}
 						>
 							{quizGroup.label}
