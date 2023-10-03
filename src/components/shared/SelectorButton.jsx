@@ -6,7 +6,7 @@ const SelectorButton = (props) => {
   return (
     <div
         className={classNames(
-            'min-w-[80px] flex-grow border px-4 py-1 text-xl rounded-lg',
+            'h-fit min-w-[80px] flex-grow border px-4 py-1 text-xl rounded-lg',
             props.colorThemeReducer.colors.GROUP_SELECTOR,{
               [`${props.colorThemeReducer.colors.GROUP_SELECTOR_HOVER} cursor-pointer`]: !props.isSelected && !props.isDisabled,
               [`${props.colorThemeReducer.colors.GROUP_SELECTOR_SELECTED}`]: props.isSelected,

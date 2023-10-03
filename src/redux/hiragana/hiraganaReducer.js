@@ -6,7 +6,13 @@ const createHiraganaObject = (value, romaji) => {
 
 const generateHiraganaList = (selectedQuizGroups) => {
     selectedQuizGroups = [...selectedQuizGroups].map(quizGroup => {
-        return quizGroup.label;
+        let label = quizGroup.label;
+
+        if (typeof label === 'object') {
+            label = label?.at(0);
+        }
+
+        return label;
     })
 
     const hiraganaList = [];
@@ -46,7 +52,7 @@ const initialState = {
 const hiraganaReducer = (state = initialState, action) => {
     switch (action.type) {
         case GENERATE_HIRAGANA_LIST:
-            let selectedQuizGroups = [...action.quizGroups].filter(quizGroup => {
+            const selectedQuizGroups = [...action.quizGroups].filter(quizGroup => {
                 return quizGroup.selected === 1;
             })
 

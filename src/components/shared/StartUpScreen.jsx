@@ -16,18 +16,24 @@ const StartUpScreen = (props) => {
 	}
 
 	return (
-		<div className="flex flex-col items-center h-full py-8">
-			<Section title={'Group'} className='mx-10 md:mx-20'>
-				<QuizGroupSelector />
+		<div className="flex flex-col items-center h-full py-8 gap-6">
+			<Section title={'Group'} className='mx-10 md:mx-20 flex-grow md:flex-grow-0'>
+				<div className='h-full overflow-y-auto'>
+					<QuizGroupSelector />
+				</div>
 			</Section>
-				<div className='flex items-end md:items-center flex-grow'>
+			<div className='flex items-center h-16 md:flex-grow'>
 				{
 					selectedCount > 0 ? (
 						<>
 							<BoxButton className='hidden md:block' onClick={() => generateHiraganaList()}>Start</BoxButton>
 							<Button className='md:hidden' onClick={() => generateHiraganaList()}>Start</Button>
 						</>
-					) : <div className='text-lg md:text-3xl'>Please select at least one group</div>
+					) : (
+						<div className='flex items-center flex-grow text-lg md:text-3xl'>
+							Please select at least one group
+						</div>
+					)
 				}
 			</div>
 		</div>

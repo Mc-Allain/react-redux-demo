@@ -1,7 +1,7 @@
 import { TOGGLE_QUIZ_GROUP, TOGGLE_QUIZ_GROUP_ALL, quizGroups } from "./quizGroupConstants";
 
-const createQuizGroupObject = (label) => {
-    return {label: label, selected: 0};
+const createQuizGroupObject = (quizGroup) => {
+    return {label: quizGroup, selected: 0};
 }
 
 const generateQuizGroupList = () => {

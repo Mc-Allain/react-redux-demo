@@ -6,7 +6,7 @@ const AppBody = (props) => {
     return (
 		<div className="grow w-full flex justify-center overflow-y-auto">
             <div className={classNames(
-                'flex min-h-full h-fit w-full',
+                'flex h-full h-fit w-full',
                 props.colorThemeReducer.colors.APP_BODY,
             )}>
                 {props.children}

@@ -8,9 +8,19 @@ const QuizGroupSelector = (props) => {
 
 	const isAllGroupSelected = !props.quizGroupReducer.quizGroups.some(quizGroup => quizGroup.selected === 0);
 
+	const getGroupLabel = (group) => {
+		let label = group.label;
+
+		if (typeof label === 'object') {
+			label = label?.at(1);
+		}
+
+		return label;
+	}
+
 	return (
 		<div className={classNames(
-			'flex justify-center flex-wrap gap-1',
+			'flex justify-center flex-wrap gap-2 overflow-y-auto',
 			props.className
 		)
 		}> 
@@ -30,7 +40,7 @@ const QuizGroupSelector = (props) => {
 							// isDisabled={quizGroup.selected === 1 && selectedCount === 1}
 							onClick={() => props.toggleQuizGroup(quizGroup)}
 						>
-							{quizGroup.label}
+							{getGroupLabel(quizGroup)}
 						</SelectorButton>
 					)
 				})

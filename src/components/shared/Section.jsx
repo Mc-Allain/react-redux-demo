@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 const Section = (props) => {
   return (
     <div className={classNames(
-        'border relative',
+        'flex flex-col border relative',
         props.colorThemeReducer.colors.SECTION,
         props.className,
     )}>
@@ -16,7 +16,7 @@ const Section = (props) => {
                 </div>
             ) : <></>
         }
-        <div className='px-8 py-10'>
+        <div className='flex-grow h-4 px-8 py-10'>
             {props.children}
         </div>
     </div>

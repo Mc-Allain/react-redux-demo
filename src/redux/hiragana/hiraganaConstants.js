@@ -32,6 +32,13 @@ export const HIRAGANA_LIST = {
     DYA: ['ぢゃ','ぢゅ','ぢょ'],
     BYA: ['びゃ','びゅ','びょ'],
     PYA: ['ぴゃ','ぴゅ','ぴょ'],
+    VCH1: [
+        'わたし', 'あなた', 'かいしゃいん', 'しゃいん', 'しゃちょう', 'ぶちょう', 'かちょう', 'おとこ', 'おんな', 'せんせい',
+        'がくせい', 'にほんじん', 'アメリカじん', 'フィリピンじん', 'みんな', 'みなさん', 'ともだち', 'ひと', 'かた',
+        'かぞく', 'エンジニア', 'けんしゅうせい', 'かいしゃ', 'オフィス', 'がっこう', 'だいがく', 'うち', 'いえ', 'へや',
+        'ちゅうしゃじょう', 'おてあらい', 'コンピュータ', 'パソコン', 'カメラ', 'ノート', 'スリッパ', 
+        'くるま', 'ほん', 'くに', 'ことば', 'さん', 'なまえ',
+    ],
 }
 
 export const ROMAJI = {
@@ -62,4 +69,11 @@ export const ROMAJI = {
     DYA: ['dya','dyu','dyo'],
     BYA: ['bya','byu','byo'],
     PYA: ['pya','pyu','pyo'],
+    VCH1: [
+        'watashi', 'anata', 'kaishain', 'shain', 'shachou', 'buchou', 'kachou', 'otoko', 'onna', 'sensei',
+        'gakusei', 'nihonjin', 'amerikajin', 'firipinjin', 'minna', 'minasan', 'tomodachi', 'hito', 'kata',
+        'kazoku', 'enjinia', 'kenshuusei', 'kaisha', 'ofisu', 'gakkou', 'daigaku', 'uchi', 'ie', 'heya',
+        'chuushajou', 'otearai', 'konpyuuta', 'pasokon', 'kamera', 'nooto', 'surippa', 
+        'kuruma', 'hon', 'kuni', 'kotoba', 'san', 'namae',
+    ],
 }

@@ -7,6 +7,8 @@ import Button from './Button';
 const MainGameScreen = (props) => {
 	const inputRef = useRef(null);
 
+    const hiraganaInDisplay = props.hiraganaReducer.hiraganaInDisplay;
+
     const isCorrect = props.hiraganaReducer.isCorrect;
 
     const getHiragana = (hiraganaInDisplay) => {
@@ -22,16 +24,27 @@ const MainGameScreen = (props) => {
         inputRef.current.focus();
     }, [isCorrect]);
 
+    const inInclusiveBetween = (value, min, max) => {
+        return value >= min && value <= max;
+    }
+
     return (
         <div className="flex flex-col items-center mx-7">
             <div className="text-2xl md:text-4xl">
                 {'Score: ' + props.hiraganaReducer.score + '/' + props.hiraganaReducer.hiraganaList.length}
             </div>
-            <div className="text-8xl md:text-[170px] my-16">
-                {props.hiraganaReducer.hiraganaInDisplay.value}
+            <div className={classNames(
+                'my-16', {
+                    'text-8xl': inInclusiveBetween(hiraganaInDisplay.value.length, 1, 3),
+                    'text-5xl': inInclusiveBetween(hiraganaInDisplay.value.length, 4, 6),
+                    'text-4xl': inInclusiveBetween(hiraganaInDisplay.value.length, 7, 10),
+                    'text-3xl': inInclusiveBetween(hiraganaInDisplay.value.length, 11, hiraganaInDisplay.value.length),
+                }
+            )}>
+                {hiraganaInDisplay.value}
             </div>
             <input type="text" ref={inputRef} className={classNames(
-                ' text-2xl md:text-5xl px-4 py-2 text-center border',
+                'text-2xl md:text-5xl px-4 py-2 text-center w-full border w-64 md:w-96',
                 props.colorThemeReducer.colors.INPUT,
             )}
                 onKeyUp={(e) => {

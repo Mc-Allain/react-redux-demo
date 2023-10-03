@@ -6,4 +6,5 @@ export const quizGroups = [
     ['GA', 'ZA', 'DA', 'BA', 'PA'],
     ['KYA', 'SHA', 'CHA', 'NYA', 'HYA', 'MYA', 'RYA'],
     ['GYA', 'JA', 'DYA', 'BYA', 'PYA'],
+    [['VCH1','Vocabulary Ch. 1']],
 ]
