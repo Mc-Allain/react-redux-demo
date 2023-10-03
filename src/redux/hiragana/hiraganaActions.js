@@ -1,4 +1,11 @@
-import { END_HIRAGANA, GET_HIRAGANA, QUIT_HIRAGANA, SUBMIT_HIRAGANA } from "./hiraganaConstants"
+import { END_HIRAGANA, GENERATE_HIRAGANA_LIST, GET_HIRAGANA, QUIT_HIRAGANA, SUBMIT_HIRAGANA } from "./hiraganaConstants"
+
+export const generateHiraganaList = (quizGroups) => {
+    return {
+        type: GENERATE_HIRAGANA_LIST,
+        quizGroups: quizGroups,
+    }
+}
 
 export const getHiragana = (hiragana) => {
     return {

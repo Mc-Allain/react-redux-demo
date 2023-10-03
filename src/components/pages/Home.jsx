@@ -1,9 +1,8 @@
 import React from "react";
-import { getHiragana } from '../../redux'
 import { connect } from "react-redux";
-import BoxButton from "../shared/BoxButton";
 import GameOverScreen from "../shared/GameOverScreen";
 import MainGameScreen from "../shared/MainGameScreen";
+import StartUpScreen from "../shared/StartUpScreen";
 
 const Home = (props) => {
     return (
@@ -11,14 +10,14 @@ const Home = (props) => {
             Object.keys(props.hiraganaReducer.hiraganaInDisplay).length > 0 ? (
                 <MainGameScreen />
             ) : (
-                <div> {
+                <> {
                         props.hiraganaReducer.isGameOver ? (
                             <GameOverScreen />
                         ) : (
-                            <BoxButton onClick={() => props.getHiragana()}>Start</BoxButton>
+                            <StartUpScreen />
                         )
                     }
-                </div>
+                </>
             )
         }
         </div>
@@ -31,10 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getHiragana: () => dispatch(getHiragana()),
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (Home);
+export default connect(mapStateToProps) (Home);

@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 const BoxButton = (props) => {
   return (
     <button className={classNames(
-        'border px-4 py-2 h-[110px] w-[110px] md:h-[160px] md:w-[160px] text-2xl md:text-3xl rounded-2xl cursor-pointer ',
+        'border px-4 py-2 h-[110px] w-[110px] md:h-[160px] md:w-[160px] text-2xl md:text-3xl rounded-2xl cursor-pointer',
         props.colorThemeReducer.colors.BUTTON,
+        props.className,
     )}
         onClick={() => props.onClick()}
     >

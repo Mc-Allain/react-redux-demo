@@ -27,11 +27,7 @@ const DarkModeIconToggle = (props) => {
 				props.colorThemeReducer.colors.THEME_TOGGLE_ICON
 			)}
 			onClick={() => {
-				switchTheme(
-					props.colorThemeReducer.colorTheme === COLOR_THEMES.LIGHT ? 
-						COLOR_THEMES.DARK : 
-						COLOR_THEMES.LIGHT
-				)
+				switchTheme()
 			}}
 		/>
 	);

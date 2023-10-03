@@ -1,26 +1,33 @@
-import { END_HIRAGANA, GET_HIRAGANA, HIRAGANA_LIST, QUIT_HIRAGANA, SUBMIT_HIRAGANA, ROMAJI } from "./hiraganaConstants";
+import { END_HIRAGANA, GET_HIRAGANA, HIRAGANA_LIST, QUIT_HIRAGANA, SUBMIT_HIRAGANA, ROMAJI, GENERATE_HIRAGANA_LIST } from "./hiraganaConstants";
 
 const createHiraganaObject = (value, romaji) => {
     return {value: value, romaji: romaji, answered: 0, skipped: 0}
 }
 
-const generateHiraganaList = () => {
+const generateHiraganaList = (selectedQuizGroups) => {
+    selectedQuizGroups = [...selectedQuizGroups].map(quizGroup => {
+        return quizGroup.label;
+    })
+
     const hiraganaList = [];
 
     const hiraganaKeys = Object.keys(HIRAGANA_LIST);
 
     for (let setIndex = 0; setIndex < hiraganaKeys.length; setIndex++) {
         const setKey = hiraganaKeys[setIndex];
-        const hiraganaSet = HIRAGANA_LIST[setKey];
-        const romajiSet = ROMAJI[setKey];
+        
+        if (selectedQuizGroups.includes(setKey)) {
+            const hiraganaSet = HIRAGANA_LIST[setKey];
+            const romajiSet = ROMAJI[setKey];
 
-        for (let index = 0; index < hiraganaSet.length; index++) {
-            const hiragana = hiraganaSet[index];
-            const romaji = romajiSet[index];
+            for (let index = 0; index < hiraganaSet.length; index++) {
+                const hiragana = hiraganaSet[index];
+                const romaji = romajiSet[index];
 
-            const hiraganaObject = createHiraganaObject(hiragana, romaji);
+                const hiraganaObject = createHiraganaObject(hiragana, romaji);
 
-            hiraganaList.push(hiraganaObject);
+                hiraganaList.push(hiraganaObject);
+            }
         }
     }
 
@@ -29,7 +36,7 @@ const generateHiraganaList = () => {
 
 const initialState = {
     // hiraganaList: [createHiraganaObject(HIRAGANA_LIST.D[1], ROMAJI.D[1])],
-    hiraganaList: generateHiraganaList(),
+    hiraganaList: [],
     hiraganaInDisplay: {},
     score: 0,
     isCorrect: false,
@@ -38,8 +45,24 @@ const initialState = {
 
 const hiraganaReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GENERATE_HIRAGANA_LIST:
+            let selectedQuizGroups = [...action.quizGroups].filter(quizGroup => {
+                return quizGroup.selected === 1;
+            })
+
+            const hiraganaList = generateHiraganaList(selectedQuizGroups);
+
+            const randomIndex = Math.floor(Math.random() * hiraganaList.length);
+
+            return {
+                ...state,
+                hiraganaList: hiraganaList,
+                hiraganaInDisplay: hiraganaList?.at(randomIndex),
+                isCorrect: false,
+                isGameOver: false,
+            }
         case GET_HIRAGANA:
-            let updatedHiraganaList = [...state.hiraganaList];
+            var updatedHiraganaList = [...state.hiraganaList];
 
             if (action.hiragana) {                
                 updatedHiraganaList = [...state.hiraganaList]?.map(hiragana => {
@@ -51,7 +74,7 @@ const hiraganaReducer = (state = initialState, action) => {
                 })
             }
 
-            let availableHiraganaList = [...updatedHiraganaList].filter(hiragana => {
+            var availableHiraganaList = [...updatedHiraganaList].filter(hiragana => {
                 return hiragana.answered === 0 && hiragana.skipped === 0;
             })
 
@@ -93,7 +116,7 @@ const hiraganaReducer = (state = initialState, action) => {
                 }
             }
         case SUBMIT_HIRAGANA:
-            const clonedState = {...state};
+            var clonedState = {...state};
             
             clonedState.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
                 if (hiragana.value === action.hiragana.value) {
@@ -114,38 +137,38 @@ const hiraganaReducer = (state = initialState, action) => {
 
             return clonedState;
         case QUIT_HIRAGANA:
-            const clonedState2 = {...state};
+            var clonedState = {...state};
             
-            clonedState2.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
+            clonedState.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
                 hiragana.answered = 0;
                 hiragana.skipped = 0;
 
                 return hiragana;
             })
 
-            clonedState2.hiraganaInDisplay = {};
-            clonedState2.score = 0;
-            clonedState2.isCorrect = false;
-            clonedState2.isGameOver = false;
+            clonedState.hiraganaInDisplay = {};
+            clonedState.score = 0;
+            clonedState.isCorrect = false;
+            clonedState.isGameOver = false;
 
-            return clonedState2;
+            return clonedState;
         case END_HIRAGANA:
-            const clonedState3 = {...state};
+            var clonedState = {...state};
 
-            clonedState3.isCorrect = false;
+            clonedState.isCorrect = false;
             
-            clonedState3.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
+            clonedState.hiraganaList = [...state.hiraganaList]?.map(hiragana => {
                 hiragana.answered = 0;
                 hiragana.skipped = 0;
 
                 return hiragana;
             })
 
-            clonedState3.score = 0;
-            clonedState3.isCorrect = false;
-            clonedState3.isGameOver = false;
+            clonedState.score = 0;
+            clonedState.isCorrect = false;
+            clonedState.isGameOver = false;
 
-            return clonedState3;
+            return clonedState;
         default:
             return state;
     }

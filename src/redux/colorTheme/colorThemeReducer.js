@@ -8,7 +8,15 @@ const initialState = {
 const colorThemeReducer = (state = initialState, action) => {
     switch (action.type) {
         case SWITCH_THEME:
-            const selectedTheme = action.theme;
+            let selectedTheme = COLOR_THEMES.LIGHT;
+            
+            if (action.theme) {
+                selectedTheme = action.theme;
+            } else {
+                selectedTheme = state.colorTheme === COLOR_THEMES.LIGHT ? 
+                    COLOR_THEMES.DARK : 
+                    COLOR_THEMES.LIGHT
+            }
 
             const selectedColors = selectedTheme === COLOR_THEMES.LIGHT ? 
                                     THEME_COLORS.LIGHT : 

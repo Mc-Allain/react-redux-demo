@@ -18,6 +18,8 @@ const MainGameScreen = (props) => {
             getHiragana();
             inputRef.current.value = '';
         }
+
+        inputRef.current.focus();
     }, [isCorrect]);
 
     return (
