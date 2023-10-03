@@ -17,10 +17,8 @@ const StartUpScreen = (props) => {
 
 	return (
 		<div className="flex flex-col items-center h-full py-8 gap-6">
-			<Section title={'Group'} className='mx-10 md:mx-20 flex-grow md:flex-grow-0'>
-				<div className='h-full overflow-y-auto'>
-					<QuizGroupSelector />
-				</div>
+			<Section title={'Group'} className='mx-10 md:mx-20 flex-grow md:flex-grow-0 h-4 md:h-fit'>
+				<QuizGroupSelector />
 			</Section>
 			<div className='flex items-center h-16 md:flex-grow'>
 				{

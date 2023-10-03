@@ -16,7 +16,7 @@ const Section = (props) => {
                 </div>
             ) : <></>
         }
-        <div className='flex-grow h-4 px-8 py-10'>
+        <div className='flex-grow w-full px-8 py-10 overflow-auto'>
             {props.children}
         </div>
     </div>

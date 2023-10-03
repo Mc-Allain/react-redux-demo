@@ -20,7 +20,7 @@ const QuizGroupSelector = (props) => {
 
 	return (
 		<div className={classNames(
-			'flex justify-center flex-wrap gap-2 overflow-y-auto',
+			'flex justify-center flex-wrap gap-2',
 			props.className
 		)
 		}> 
