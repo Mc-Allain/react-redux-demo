@@ -110,7 +110,7 @@ const characterReducer = (state = initialState, action) => {
                 ...state,
                 characterList: characterList,
                 characterInDisplay: characterList?.at(randomIndex),
-                isCorrect: true,
+                isCorrect: false,
                 isGameOver: false,
             }
         case GET_CHARACTER:
@@ -155,7 +155,7 @@ const characterReducer = (state = initialState, action) => {
                     ...state,
                     characterList: updatedCharacterList,
                     characterInDisplay: availableCharacterList?.at(randomIndex),
-                    isCorrect: true,
+                    isCorrect: false,
                     isGameOver: false,
                 }
             } else {
@@ -163,7 +163,7 @@ const characterReducer = (state = initialState, action) => {
                     ...state,
                     characterList: updatedCharacterList,
                     characterInDisplay: {},
-                    isCorrect: true,
+                    isCorrect: false,
                     isGameOver: true,
                 }
             }
@@ -185,8 +185,6 @@ const characterReducer = (state = initialState, action) => {
             if (isEqualAnswer || doesContainAnswer) {
                 clonedState.score++;
                 clonedState.isCorrect = true;
-            } else {
-                clonedState.isCorrect = false;
             }
 
             return clonedState;
@@ -202,7 +200,7 @@ const characterReducer = (state = initialState, action) => {
 
             clonedState.characterInDisplay = {};
             clonedState.score = 0;
-            clonedState.isCorrect = true;
+            clonedState.isCorrect = false;
             clonedState.isGameOver = false;
 
             return clonedState;
@@ -219,7 +217,7 @@ const characterReducer = (state = initialState, action) => {
             })
 
             clonedState.score = 0;
-            clonedState.isCorrect = true;
+            clonedState.isCorrect = false;
             clonedState.isGameOver = false;
 
             return clonedState;
