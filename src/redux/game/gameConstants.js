@@ -45,6 +45,11 @@ export const QUIZ_LIST = {
                 'りょう', 'えき', 'がいこくじん', 'りょうしん', 'こども', 'いぬ', 'ねこ', 'かばん', 'けいたい', 'でんわ', 'かぎ', 
                 'めがね', 'とけい', 'つくえ', 'ひきだし', 'いす',
             ],
+            VCH3: [
+                'ねだん', 'やちん', 'おかね', 'えん', 'ぜんぶ', 'いくら', 'ぐらい', 'はたち', 'いくつ', 'れい', 'まる', 
+                'ばんごう', 'けいたい ばんごう', 'でんわ ばんごう', 'えんぴつ', 'てがみ', 'きっぷ', 'きって', 'きょうかしょ', 
+                'かさ', 'びん', 'みかん', 'りんご', 'きょうだい', 
+            ],
         },
         ROMAJI: {
             A: ['a','i','u','e','o'],
@@ -85,6 +90,11 @@ export const QUIZ_LIST = {
                 'ryou', 'eki', 'gaikokujin', 'ryoushin', 'kodomo', 'inu', 'neko', 'kaban', 'keitai', 'denwa', 'kagi', 
                 'megane', 'tokei', 'tsukue', 'hikidashi', 'isu',
             ],
+            VCH3: [
+                'nedan', 'yachin', 'okane', 'en', 'zenbu', 'ikura', 'gurai', 'hatachi', 'ikutsu', 'rei', 'maru', 
+                'bangou', ['keitai bangou', 'keitaibangou'], ['denwa bangou', 'denwabangou'], 'enpitsu', 'tegami', 'kippu', 'kitte', 'kyoukasho', 
+                'kasa', 'bin', 'mikan', 'ringo', 'kyoudai', 
+            ],
         },
     },
     Katakana: {
@@ -122,6 +132,9 @@ export const QUIZ_LIST = {
             VCH2: [
                 'モール', 'カフェ', 'レストラン', 'デパート', 'スーパー', 'ビル', 'アパート', 'テーブル', 'テレビ', 'クラス',
             ],
+            VCH3: [
+                'ペソ', 'ドル', 'ページ', 'ボールペン', 'ペン', 
+            ],
         },
         ROMAJI: {
             A: ['a','i','u','e','o'],
@@ -157,6 +170,9 @@ export const QUIZ_LIST = {
             VCH2: [
                 ['moru', 'mooru', 'mouru'], 'kafe', 'resutoran', ['depato', 'depaato'], ['supa', 'suupaa'], 'biru', ['apato', 'apaato',], 
                 ['teburu', 'teiburu', 'teeburu'], 'terebi', 'kurasu',
+            ],
+            VCH3: [
+                'peso', 'doru', ['peiji', 'peeji', 'peji'], ['bourupen', 'boorupen', 'borupen'], 'pen', 
             ],
         }
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux';
 import { getCharacter, quitGame, submitCharacter } from '../../redux';
 import classNames from 'classnames';
@@ -6,8 +6,6 @@ import Button from './Button';
 
 const MainGameScreen = (props) => {
 	const inputRef = useRef(null);
-
-    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const characterInDisplay = props.gameReducer.characterInDisplay;
 
@@ -21,7 +19,6 @@ const MainGameScreen = (props) => {
         if (isCorrect) {
             getCharacter();
             inputRef.current.value = '';
-            setIsSubmitted(false);
         }
 
         inputRef.current.focus();
@@ -42,29 +39,19 @@ const MainGameScreen = (props) => {
                     'text-5xl lg:text-8xl': inInclusiveBetween(characterInDisplay.value.length, 4, 6),
                     'text-4xl lg:text-7xl': inInclusiveBetween(characterInDisplay.value.length, 7, 10),
                     'text-3xl lg:text-5xl': inInclusiveBetween(characterInDisplay.value.length, 11, characterInDisplay.value.length),
-                    'text-red-600': isSubmitted,
                 }
             )}>
                 {characterInDisplay.value}
             </div>
             <input type="text" ref={inputRef} className={classNames(
                 'text-2xl lg:text-5xl px-4 py-2 text-center w-full border w-64 lg:w-96',
-                props.colorThemeReducer.colors.INPUT, {
-                    'text-red-600': isSubmitted,
-                }
+                props.colorThemeReducer.colors.INPUT
             )}
                 onKeyUp={(e) => {
                     if (e.key === 'Enter') {
                         props.submitCharacter(props.gameReducer.characterInDisplay, inputRef.current.value);
-                        setIsSubmitted(true);
                     } else if (e.key === 'Escape') {
                         getCharacter(props.gameReducer.characterInDisplay);
-                    }
-                }}
-
-                onChange={() => {
-                    if (isSubmitted) {
-                        setIsSubmitted(false);
                     }
                 }}
             />

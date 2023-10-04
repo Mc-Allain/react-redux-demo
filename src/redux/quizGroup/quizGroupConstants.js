@@ -15,4 +15,5 @@ export const kanaGroups = [
 export const vocabularyGroups = [
     [['VCH1','Vocabulary Ch. 1']],
     [['VCH2','Vocabulary Ch. 2']],
+    [['VCH3','Vocabulary Ch. 3']],
 ]
