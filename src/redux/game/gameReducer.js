@@ -110,7 +110,7 @@ const characterReducer = (state = initialState, action) => {
                 ...state,
                 characterList: characterList,
                 characterInDisplay: characterList?.at(randomIndex),
-                isCorrect: false,
+                isCorrect: true,
                 isGameOver: false,
             }
         case GET_CHARACTER:
@@ -155,7 +155,7 @@ const characterReducer = (state = initialState, action) => {
                     ...state,
                     characterList: updatedCharacterList,
                     characterInDisplay: availableCharacterList?.at(randomIndex),
-                    isCorrect: false,
+                    isCorrect: true,
                     isGameOver: false,
                 }
             } else {
@@ -163,7 +163,7 @@ const characterReducer = (state = initialState, action) => {
                     ...state,
                     characterList: updatedCharacterList,
                     characterInDisplay: {},
-                    isCorrect: false,
+                    isCorrect: true,
                     isGameOver: true,
                 }
             }
@@ -178,13 +178,15 @@ const characterReducer = (state = initialState, action) => {
                 return character;
             })
 
-            const isEqualAnswer = action.character.romaji === action.answer.toLowerCase();
+            const isEqualAnswer = action.character.romaji === action.answer.trim().toLowerCase();
             const doesContainAnswer = typeof action.character.romaji === 'object' && 
-                                        action.character.romaji.includes(action.answer.toLowerCase());
+                                        action.character.romaji.includes(action.answer.trim().toLowerCase());
 
             if (isEqualAnswer || doesContainAnswer) {
                 clonedState.score++;
                 clonedState.isCorrect = true;
+            } else {
+                clonedState.isCorrect = false;
             }
 
             return clonedState;
@@ -200,7 +202,7 @@ const characterReducer = (state = initialState, action) => {
 
             clonedState.characterInDisplay = {};
             clonedState.score = 0;
-            clonedState.isCorrect = false;
+            clonedState.isCorrect = true;
             clonedState.isGameOver = false;
 
             return clonedState;
@@ -217,7 +219,7 @@ const characterReducer = (state = initialState, action) => {
             })
 
             clonedState.score = 0;
-            clonedState.isCorrect = false;
+            clonedState.isCorrect = true;
             clonedState.isGameOver = false;
 
             return clonedState;

@@ -40,6 +40,11 @@ export const QUIZ_LIST = {
                 'かぞく', 'けんしゅうせい', 'かいしゃ', 'がっこう', 'だいがく', 'うち', 'いえ', 'へや',
                 'ちゅうしゃじょう', 'おてあらい', 'くるま', 'ほん', 'くに', 'ことば', 'さん', 'なまえ',
             ],
+            VCH2: [
+                'びょういん', 'こうじょう', 'ぎんこう', 'たいしかん', 'としょかん', 'えいがかん', 'きっさてん', 'ほにゃ', 'かいぎしつ', 
+                'りょう', 'えき', 'がいこくじん', 'りょうしん', 'こども', 'こ', 'いぬ', 'ねこ', 'かばん', 'けいたい', 'でんわ', 'かぎ', 
+                'めがね', 'とけい', 'つくえ', 'ひきだし', 'いす', 'き',
+            ],
         },
         ROMAJI: {
             A: ['a','i','u','e','o'],
@@ -75,6 +80,11 @@ export const QUIZ_LIST = {
                 'kazoku', 'kenshuusei', 'kaisha', 'gakkou', 'daigaku', 'uchi', 'ie', 'heya',
                 'chuushajou', 'otearai', 'kuruma', 'hon', 'kuni', 'kotoba', 'san', 'namae',
             ],
+            VCH2: [
+                'byouin', 'koujou', 'ginkou', 'taishikan', 'toshokan', 'eigakan', 'kissaten', 'honya', 'kaigishitsu', 
+                'ryou', 'eki', 'gaikokujin', 'ryoushin', 'kodomo', 'ko', 'inu', 'neko', 'kaban', 'keitai', 'denwa', 'kagi', 
+                'megane', 'tokei', 'tsukue', 'hikidashi', 'isu', 'ki',
+            ],
         },
     },
     Katakana: {
@@ -109,6 +119,9 @@ export const QUIZ_LIST = {
             VCH1: [
                 'アメリカ', 'フィリピン', 'エンジニア', 'オフィス', 'コンピュータ', 'パソコン', 'カメラ', 'ノート', 'スリッパ',
             ],
+            VCH2: [
+                'モール', 'カフェ', 'レストラン', 'デパート', 'スーパー', 'ビル', 'アパート', 'テーブル', 'テレビ', 'クラス',
+            ],
         },
         ROMAJI: {
             A: ['a','i','u','e','o'],
@@ -139,7 +152,11 @@ export const QUIZ_LIST = {
             BYA: ['bya','byu','byo'],
             PYA: ['pya','pyu','pyo'],
             VCH1: [
-                'amerika', 'firipin', 'enjinia', 'ofisu', 'konpyuuta', 'pasokon', 'kamera', 'nooto', 'surippa',
+                'amerika', 'firipin', 'enjinia', 'ofisu', ['konpyuta', 'konpyuuta'], 'pasokon', 'kamera', ['noto', 'nouto', 'nooto'], 'surippa',
+            ],
+            VCH2: [
+                ['moru', 'mooru', 'mouru'], 'kafe', 'resutoran', ['depato', 'depaato'], ['supa', 'suupaa'], 'biru', ['apato', 'apaato',], 
+                ['teburu', 'teiburu', 'teeburu'], 'terebi', 'kurasu',
             ],
         }
     }
