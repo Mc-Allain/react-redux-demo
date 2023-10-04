@@ -1,11 +1,11 @@
 import { combineReducers, legacy_createStore } from "redux";
 import colorThemeReducer from "./colorTheme/colorThemeReducer";
-import hiraganaReducer from "./hiragana/hiraganaReducer";
+import gameReducer from "./game/gameReducer";
 import quizGroupReducer from "./quizGroup/quizGroupReducer";
 
 const combinedReducer = combineReducers({
     colorThemeReducer: colorThemeReducer, 
-    hiraganaReducer: hiraganaReducer,
+    gameReducer: gameReducer,
     quizGroupReducer: quizGroupReducer,
 });
 

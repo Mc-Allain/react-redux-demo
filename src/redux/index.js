@@ -1,3 +1,3 @@
 export { switchTheme } from './colorTheme/colorThemeActions';
-export { generateHiraganaList, getHiragana,submitHiragana, quitHiragana, endHiragana } from './hiragana/hiraganaActions';
+export { generateCharacterList, getCharacter,submitCharacter, quitGame, endGame } from './game/gameActions';
 export { toggleQuizGroup, toggleQuizGroupAll } from './quizGroup/quizGroupActions';

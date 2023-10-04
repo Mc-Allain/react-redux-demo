@@ -1,23 +1,23 @@
 import React, { useEffect, useRef } from 'react'
 import { connect } from 'react-redux';
-import { getHiragana, quitHiragana, submitHiragana } from '../../redux';
+import { getCharacter, quitGame, submitCharacter } from '../../redux';
 import classNames from 'classnames';
 import Button from './Button';
 
 const MainGameScreen = (props) => {
 	const inputRef = useRef(null);
 
-    const hiraganaInDisplay = props.hiraganaReducer.hiraganaInDisplay;
+    const characterInDisplay = props.gameReducer.characterInDisplay;
 
-    const isCorrect = props.hiraganaReducer.isCorrect;
+    const isCorrect = props.gameReducer.isCorrect;
 
-    const getHiragana = (hiraganaInDisplay) => {
-        props.getHiragana(hiraganaInDisplay);
+    const getCharacter = (characterInDisplay) => {
+        props.getCharacter(characterInDisplay);
     }
 
     useEffect(() => {
         if (isCorrect) {
-            getHiragana();
+            getCharacter();
             inputRef.current.value = '';
         }
 
@@ -30,34 +30,34 @@ const MainGameScreen = (props) => {
 
     return (
         <div className="flex flex-col items-center mx-7">
-            <div className="text-2xl md:text-4xl">
-                {'Score: ' + props.hiraganaReducer.score + '/' + props.hiraganaReducer.hiraganaList.length}
+            <div className="text-2xl lg:text-4xl">
+                {'Score: ' + props.gameReducer.score + '/' + props.gameReducer.characterList.length}
             </div>
             <div className={classNames(
                 'my-16', {
-                    'text-8xl': inInclusiveBetween(hiraganaInDisplay.value.length, 1, 3),
-                    'text-5xl': inInclusiveBetween(hiraganaInDisplay.value.length, 4, 6),
-                    'text-4xl': inInclusiveBetween(hiraganaInDisplay.value.length, 7, 10),
-                    'text-3xl': inInclusiveBetween(hiraganaInDisplay.value.length, 11, hiraganaInDisplay.value.length),
+                    'text-8xl lg:text-9xl': inInclusiveBetween(characterInDisplay.value.length, 1, 3),
+                    'text-5xl lg:text-8xl': inInclusiveBetween(characterInDisplay.value.length, 4, 6),
+                    'text-4xl lg:text-5xl': inInclusiveBetween(characterInDisplay.value.length, 7, 10),
+                    'text-3xl lg:text-4xl': inInclusiveBetween(characterInDisplay.value.length, 11, characterInDisplay.value.length),
                 }
             )}>
-                {hiraganaInDisplay.value}
+                {characterInDisplay.value}
             </div>
             <input type="text" ref={inputRef} className={classNames(
-                'text-2xl md:text-5xl px-4 py-2 text-center w-full border w-64 md:w-96',
+                'text-2xl lg:text-5xl px-4 py-2 text-center w-full border w-64 lg:w-96',
                 props.colorThemeReducer.colors.INPUT,
             )}
                 onKeyUp={(e) => {
                     if (e.key === 'Enter') {
-                        props.submitHiragana(props.hiraganaReducer.hiraganaInDisplay, inputRef.current.value);
+                        props.submitCharacter(props.gameReducer.characterInDisplay, inputRef.current.value);
                     } else if (e.key === 'Escape') {
-                        getHiragana(props.hiraganaReducer.hiraganaInDisplay);
+                        getCharacter(props.gameReducer.characterInDisplay);
                     }
                 }}
             />
             <div className='flex gap-5 mt-10'>
-                <Button onClick={() => props.quitHiragana()}>Quit</Button>
-                <Button onClick={() => getHiragana(props.hiraganaReducer.hiraganaInDisplay)}>Next (ESC)</Button>
+                <Button onClick={() => props.quitGame()}>Quit</Button>
+                <Button onClick={() => getCharacter(props.gameReducer.characterInDisplay)}>Next (ESC)</Button>
             </div>
         </div>
     )
@@ -66,15 +66,15 @@ const MainGameScreen = (props) => {
 const mapStateToProps = state => {
     return {
         colorThemeReducer: state.colorThemeReducer,
-        hiraganaReducer: state.hiraganaReducer,
+        gameReducer: state.gameReducer,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getHiragana: (hiragana) => dispatch(getHiragana(hiragana)),
-        submitHiragana: (hiragana, answer) => dispatch(submitHiragana(hiragana, answer)),
-        quitHiragana: () => dispatch(quitHiragana()),
+        getCharacter: (character) => dispatch(getCharacter(character)),
+        submitCharacter: (character, answer) => dispatch(submitCharacter(character, answer)),
+        quitGame: () => dispatch(quitGame()),
     }
 }
 

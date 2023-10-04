@@ -7,11 +7,11 @@ import StartUpScreen from "../shared/StartUpScreen";
 const Home = (props) => {
     return (
         <div className="flex flex-grow justify-center items-center"> {
-            Object.keys(props.hiraganaReducer.hiraganaInDisplay).length > 0 ? (
+            Object.keys(props.gameReducer.characterInDisplay).length > 0 ? (
                 <MainGameScreen />
             ) : (
                 <> {
-                        props.hiraganaReducer.isGameOver ? (
+                        props.gameReducer.isGameOver ? (
                             <GameOverScreen />
                         ) : (
                             <StartUpScreen />
@@ -26,7 +26,7 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
     return {
-        hiraganaReducer: state.hiraganaReducer,
+        gameReducer: state.gameReducer,
     }
 }
 

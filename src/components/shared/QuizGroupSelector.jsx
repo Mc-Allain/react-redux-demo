@@ -6,7 +6,7 @@ import SelectorButton from './SelectorButton';
 
 const QuizGroupSelector = (props) => {
 
-	const isAllGroupSelected = !props.quizGroupReducer.quizGroups.some(quizGroup => quizGroup.selected === 0);
+	const isAllGroupSelected = !props.quizGroups?.some(quizGroup => quizGroup.selected === 0);
 
 	const getGroupLabel = (group) => {
 		let label = group.label;
@@ -25,14 +25,14 @@ const QuizGroupSelector = (props) => {
 		)
 		}> 
 			<SelectorButton 
-				className='w-32'
+				className='w-36'
 				isSelected={isAllGroupSelected}
-				onClick={() => props.toggleQuizGroupAll(!isAllGroupSelected)}
+				onClick={() => props.toggleQuizGroupAll(!isAllGroupSelected, props.quizGroups)}
 			>
 				{isAllGroupSelected ? 'Deselect All' : 'Select All'}
 			</SelectorButton>
 		{
-				props.quizGroupReducer.quizGroups.map((quizGroup, index) => {
+				props.quizGroups?.map((quizGroup, index) => {
 					return (
 						<SelectorButton 
 							key={index}
@@ -52,14 +52,13 @@ const QuizGroupSelector = (props) => {
 const mapStateToProps = state => {
 	return {
 		colorThemeReducer: state.colorThemeReducer,
-		quizGroupReducer: state.quizGroupReducer,
 	}
 }
 
 const mapDispatchToProps = dispatch => {
 	return {
 		toggleQuizGroup: (quizGroup) => dispatch(toggleQuizGroup(quizGroup)),
-		toggleQuizGroupAll: (doSelectAll) => dispatch(toggleQuizGroupAll(doSelectAll)),
+		toggleQuizGroupAll: (doSelectAll, quizGroups) => dispatch(toggleQuizGroupAll(doSelectAll, quizGroups)),
 	}
 }
 

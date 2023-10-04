@@ -23,7 +23,7 @@ const DarkModeIconToggle = (props) => {
 		<FontAwesomeIcon
 			icon={props.colorThemeReducer.colorTheme === COLOR_THEMES.LIGHT ? faMoon : faSun}
 			className={classNames(
-				"text-xl md:text-2xl p-2 cursor-pointer",
+				"text-xl lg:text-2xl p-2 cursor-pointer",
 				props.colorThemeReducer.colors.THEME_TOGGLE_ICON
 			)}
 			onClick={() => {

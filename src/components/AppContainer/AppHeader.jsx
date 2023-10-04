@@ -10,8 +10,8 @@ const AppHeader = (props) => {
                 flex justify-between items-center gap-2 px-4 lg:px-8 py-1 sticky top-0 border-b-[1px]`,
             props.colorThemeReducer.colors.APP_HEADER,
         )}>
-            <div className='text-lg md:text-2xl font-medium uppercase '>
-                Japanese Kana Typing Quiz
+            <div className='text-lg lg:text-2xl font-medium uppercase '>
+                Japanese Typing Quiz
             </div>
             <DarkModeIconToggle />
         </div>
