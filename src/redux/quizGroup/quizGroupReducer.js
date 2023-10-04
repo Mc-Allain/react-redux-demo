@@ -1,4 +1,4 @@
-import { TOGGLE_QUIZ_GROUP, TOGGLE_QUIZ_GROUP_ALL, kanaTypeGroups, kanaGroups, vocabularyGroups } from "./quizGroupConstants";
+import { TOGGLE_QUIZ_GROUP, TOGGLE_QUIZ_GROUP_ALL, kanaTypeGroups, basicKanaGroups, kanaDakutenGroups, combinedKanaGroups, combinedKanaDakutenGroups, vocabularyGroups } from "./quizGroupConstants";
 
 const createQuizGroupObject = (quizGroup) => {
     return {label: quizGroup, selected: 0};
@@ -25,7 +25,10 @@ const generateQuizGroupList = (quizGroups) => {
 const initiateState = {
     quizGroups: {
         kanaTypeGroups: generateQuizGroupList(kanaTypeGroups),
-        kanaGroups: generateQuizGroupList(kanaGroups),
+        basicKanaGroups: generateQuizGroupList(basicKanaGroups),
+        kanaDakutenGroups: generateQuizGroupList(kanaDakutenGroups),
+        combinedKanaGroups: generateQuizGroupList(combinedKanaGroups),
+        combinedKanaDakutenGroups: generateQuizGroupList(combinedKanaDakutenGroups),
         vocabularyGroups: generateQuizGroupList(vocabularyGroups),
     }
 }

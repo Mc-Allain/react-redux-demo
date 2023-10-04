@@ -42,7 +42,7 @@ const StartUpScreen = (props) => {
 
 	return (
 		<div className="flex flex-col items-center h-full py-8 gap-6">
-			<div className='flex flex-col lg:flex-row gap-7 lg:gap-10 mx-10 lg:mx-20 h-fit'>
+			<div className='flex flex-col lg:flex-row lg:flex-wrap gap-7 lg:gap-10 mx-10 lg:mx-20 h-fit'>
 				<Section title={'Kana Type'} className={classNames(
 						'flex-grow min-w-[275px]', {
 							'border-yellow-500 border-2': selectedKanaTypeGroupCount === 0,
@@ -51,13 +51,37 @@ const StartUpScreen = (props) => {
 				>
 					<QuizGroupSelector quizGroups={quizGroups.kanaTypeGroups} />
 				</Section>
-				<Section title={'Kana'} className={classNames(
+				<Section title={'Basic Kana'} className={classNames(
 						'flex-grow min-w-[275px]', {
 							'border-yellow-500 border-2': selectedQuizGroupsCount === 0,
 						}
 					)}
 				>
-					<QuizGroupSelector quizGroups={quizGroups.kanaGroups} />
+					<QuizGroupSelector quizGroups={quizGroups.basicKanaGroups} />
+				</Section>
+				<Section title={'Kana Dakuten'} className={classNames(
+						'flex-grow min-w-[275px]', {
+							'border-yellow-500 border-2': selectedQuizGroupsCount === 0,
+						}
+					)}
+				>
+					<QuizGroupSelector quizGroups={quizGroups.kanaDakutenGroups} />
+				</Section>
+				<Section title={'Combined Kana'} className={classNames(
+						'flex-grow min-w-[275px]', {
+							'border-yellow-500 border-2': selectedQuizGroupsCount === 0,
+						}
+					)}
+				>
+					<QuizGroupSelector quizGroups={quizGroups.combinedKanaGroups} />
+				</Section>
+				<Section title={'Combined Kana Dakuten'} className={classNames(
+						'flex-grow min-w-[275px]', {
+							'border-yellow-500 border-2': selectedQuizGroupsCount === 0,
+						}
+					)}
+				>
+					<QuizGroupSelector quizGroups={quizGroups.combinedKanaDakutenGroups} />
 				</Section>
 				<Section title={'Kana Vocabulary'} className={classNames(
 						'flex-grow min-w-[275px]', {
