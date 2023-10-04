@@ -21,6 +21,7 @@ const MainGameScreen = (props) => {
         if (isCorrect) {
             getCharacter();
             inputRef.current.value = '';
+            setIsSubmitted(false);
         }
 
         inputRef.current.focus();
@@ -39,9 +40,9 @@ const MainGameScreen = (props) => {
                 'my-16', {
                     'text-8xl lg:text-9xl': inInclusiveBetween(characterInDisplay.value.length, 1, 3),
                     'text-5xl lg:text-8xl': inInclusiveBetween(characterInDisplay.value.length, 4, 6),
-                    'text-4xl lg:text-5xl': inInclusiveBetween(characterInDisplay.value.length, 7, 10),
-                    'text-3xl lg:text-4xl': inInclusiveBetween(characterInDisplay.value.length, 11, characterInDisplay.value.length),
-                    // 'text-red-600': !props.gameReducer.isCorrect && isSubmitted,
+                    'text-4xl lg:text-7xl': inInclusiveBetween(characterInDisplay.value.length, 7, 10),
+                    'text-3xl lg:text-5xl': inInclusiveBetween(characterInDisplay.value.length, 11, characterInDisplay.value.length),
+                    'text-red-600': isSubmitted,
                 }
             )}>
                 {characterInDisplay.value}
@@ -49,23 +50,23 @@ const MainGameScreen = (props) => {
             <input type="text" ref={inputRef} className={classNames(
                 'text-2xl lg:text-5xl px-4 py-2 text-center w-full border w-64 lg:w-96',
                 props.colorThemeReducer.colors.INPUT, {
-                    // 'text-red-600': !props.gameReducer.isCorrect && isSubmitted,
+                    'text-red-600': isSubmitted,
                 }
             )}
                 onKeyUp={(e) => {
                     if (e.key === 'Enter') {
                         props.submitCharacter(props.gameReducer.characterInDisplay, inputRef.current.value);
-                        // setIsSubmitted(true);
+                        setIsSubmitted(true);
                     } else if (e.key === 'Escape') {
                         getCharacter(props.gameReducer.characterInDisplay);
                     }
                 }}
 
-                // onChange={() => {
-                //     if (isSubmitted) {
-                //         setIsSubmitted(false);
-                //     }
-                // }}
+                onChange={() => {
+                    if (isSubmitted) {
+                        setIsSubmitted(false);
+                    }
+                }}
             />
             <div className='flex gap-5 mt-10'>
                 <Button onClick={() => props.quitGame()}>Quit</Button>

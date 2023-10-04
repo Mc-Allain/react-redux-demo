@@ -42,8 +42,8 @@ export const QUIZ_LIST = {
             ],
             VCH2: [
                 'びょういん', 'こうじょう', 'ぎんこう', 'たいしかん', 'としょかん', 'えいがかん', 'きっさてん', 'ほにゃ', 'かいぎしつ', 
-                'りょう', 'えき', 'がいこくじん', 'りょうしん', 'こども', 'こ', 'いぬ', 'ねこ', 'かばん', 'けいたい', 'でんわ', 'かぎ', 
-                'めがね', 'とけい', 'つくえ', 'ひきだし', 'いす', 'き',
+                'りょう', 'えき', 'がいこくじん', 'りょうしん', 'こども', 'いぬ', 'ねこ', 'かばん', 'けいたい', 'でんわ', 'かぎ', 
+                'めがね', 'とけい', 'つくえ', 'ひきだし', 'いす',
             ],
         },
         ROMAJI: {
@@ -82,8 +82,8 @@ export const QUIZ_LIST = {
             ],
             VCH2: [
                 'byouin', 'koujou', 'ginkou', 'taishikan', 'toshokan', 'eigakan', 'kissaten', 'honya', 'kaigishitsu', 
-                'ryou', 'eki', 'gaikokujin', 'ryoushin', 'kodomo', 'ko', 'inu', 'neko', 'kaban', 'keitai', 'denwa', 'kagi', 
-                'megane', 'tokei', 'tsukue', 'hikidashi', 'isu', 'ki',
+                'ryou', 'eki', 'gaikokujin', 'ryoushin', 'kodomo', 'inu', 'neko', 'kaban', 'keitai', 'denwa', 'kagi', 
+                'megane', 'tokei', 'tsukue', 'hikidashi', 'isu',
             ],
         },
     },
